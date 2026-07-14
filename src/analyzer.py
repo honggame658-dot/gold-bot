@@ -141,16 +141,16 @@ def analyze_market_summary(prices_text, headlines_text, ta_data="None"):
         
         🎯 <b>សញ្ញាជួញដូរ (Trading Signal):</b>
         📍 ចូលផ្សារ (Entry): [If Buy: BUY at $X. If Sell: SELL at $X. If Wait: រង់ចាំសិន (WAIT). WARNING: The Entry price MUST be extremely close to the CURRENT PRICE provided above. DO NOT hallucinate old prices!]
-        ✅ ប្រាក់ចំណេញ (TP): $[FINAL NUMBER ONLY. Calculate using Entry +/- (ATR * 1.5). DO NOT SHOW THE MATH FORMULA. If WAIT, put 'N/A']
-        ❌ កាត់ខាត (SL): $[FINAL NUMBER ONLY. Calculate using Entry +/- (ATR * 0.5). DO NOT SHOW THE MATH FORMULA. If WAIT, put 'N/A']
+        ✅ ប្រាក់ចំណេញ (TP): $[FINAL NUMBER ONLY. Must be $8-$15 away from Entry]
+        ❌ កាត់ខាត (SL): $[FINAL NUMBER ONLY. Must be $3-$5 away from Entry]
         
         CRITICAL TRADING RULES (MUST FOLLOW STRICTLY):
         1. DAY TRADING BIAS: This is an intraday/scalping bot. Rely heavily on the 15m and 1h trends for your signal. If the 1D trend contradicts, DO NOT automatically output WAIT. Instead, provide a BUY or SELL signal based on the shorter timeframes, but warn the user in the footnote to use a smaller lot size. Try to avoid WAIT unless the market is completely flat and directionless.
         2. SUPPORT/RESISTANCE & CURRENT PRICE: Entry prices should ideally be near Pivot Points, S1, R1, or Bollinger Bands. **CRITICAL WARNING: The current year is 2026. Gold is trading around $4000+. DO NOT USE PRICES FROM YOUR TRAINING DATA (e.g., $2000-$2600). YOU MUST BASE YOUR ENTRY STRICTLY ON THE PROVIDED CURRENT PRICE!**
-        3. ATR STOP LOSS (SL) & TAKE PROFIT (TP): Use the provided "Daily ATR" value to calculate SL and TP! 
-           - SL MUST be approximately (0.5 * ATR) away from the Entry Price. This protects against whipsaws but keeps risk low.
-           - TP MUST be approximately (1.5 * ATR) away from the Entry Price for a good Risk/Reward ratio.
-           - Never blindly give a $50 Stop Loss! Use the math.
+        3. STOP LOSS (SL) & TAKE PROFIT (TP): This is a scalping/intraday bot. DO NOT USE HUGE SL/TP. Keep them realistic for day trading!
+           - SL MUST be tight: Strictly $3 to $5 away from the Entry Price (e.g., if Entry is 4000, SL is 3996).
+           - TP MUST be moderate: Strictly $8 to $15 away from the Entry Price for a good Risk/Reward ratio.
+           - DO NOT use large ATR multipliers like 0.5 or 1.5. Keep it small!
         4. X and Y sentiment percentages must add up to 100.
         5. You MUST NOT explain the math formula you used for TP/SL. However, you MAY add a helpful footnote starting with "*(ចំណាំ៖ ...)*" at the very bottom to provide risk management advice (e.g. "Because the 1D trend is Bearish, use small lot size").
         """
