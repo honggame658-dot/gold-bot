@@ -102,8 +102,7 @@ def fetch_technical_analysis(symbol="GC=F"):
         
         asset_name = "Gold (XAU/USD)" if symbol == "GC=F" else "Bitcoin (BTC/USD)" if symbol == "BTC-USD" else symbol
         
-        ta_text = f"[Technical Indicators - {asset_name} - MULTIPLE TIMEFRAMES]\nCurrent Price: ${current_price:.2f}\n"
-        ta_text += f"Daily ATR (Volatility for SL/TP): ${latest_atr:.2f}\n\n"
+        ta_text = f"[Technical Indicators - {asset_name} - MULTIPLE TIMEFRAMES]\nCurrent Price: ${current_price:.2f}\n\n"
         
         if ta_15m: ta_text += f"► 15-Min Chart (Scalping/Entry):\n  {ta_15m}\n\n"
         if ta_1h: ta_text += f"► 1-Hour Chart (Short-term Trend):\n  {ta_1h}\n\n"
