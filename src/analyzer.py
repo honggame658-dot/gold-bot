@@ -145,7 +145,7 @@ def analyze_market_summary(prices_text, headlines_text, ta_data="None"):
         ❌ កាត់ខាត (SL): $[FINAL NUMBER ONLY. Calculate using Entry +/- (ATR * 0.5). DO NOT SHOW THE MATH FORMULA. If WAIT, put 'N/A']
         
         CRITICAL TRADING RULES (MUST FOLLOW STRICTLY):
-        1. CONFLUENCE: If the 15m, 1h, and 1d trends contradict each other wildly (e.g., strong buy on 15m, strong sell on 1d), recommend "រង់ចាំសិន (WAIT)" unless there is a clear setup at a Support/Resistance line.
+        1. DAY TRADING BIAS: This is an intraday/scalping bot. Rely heavily on the 15m and 1h trends for your signal. If the 1D trend contradicts, DO NOT automatically output WAIT. Instead, provide a BUY or SELL signal based on the shorter timeframes, but warn the user in the footnote to use a smaller lot size. Try to avoid WAIT unless the market is completely flat and directionless.
         2. SUPPORT/RESISTANCE & CURRENT PRICE: Entry prices should ideally be near Pivot Points, S1, R1, or Bollinger Bands. **CRITICAL WARNING: The current year is 2026. Gold is trading around $4000+. DO NOT USE PRICES FROM YOUR TRAINING DATA (e.g., $2000-$2600). YOU MUST BASE YOUR ENTRY STRICTLY ON THE PROVIDED CURRENT PRICE!**
         3. ATR STOP LOSS (SL) & TAKE PROFIT (TP): Use the provided "Daily ATR" value to calculate SL and TP! 
            - SL MUST be approximately (0.5 * ATR) away from the Entry Price. This protects against whipsaws but keeps risk low.
